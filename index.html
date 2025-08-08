@@ -1,0 +1,70 @@
+<!-- Daily To-Do List (HTML Part) -->
+<!-- A Progressive Web App that helps users manage and organize daily tasks efficiently with features like Dark/Light Mode, Local Storage, and a Responsive UI -->
+<!-- Program by Zidaan -->
+<!DOCTYPE html>
+<html lang="en">
+<!-- Head of the webpage -->
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Daily To-Do List</title>
+  <link rel="manifest" href="manifest.json" /> <!-- Manifest file for PWA compatibility -->
+  <link rel="stylesheet" href="style.css" /> <!-- Linking external CSS Stylesheet -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- Font Awesome for icons -->
+</head>
+<!-- Body of the webpage (Begins) -->
+<body>
+  <!-- Main container for the To-Do List application -->
+  <div class="container">
+    <!-- Header section with title and mode toggle -->
+    <div class="header">
+      <h2>Daily To-Do List</h2>
+      <!-- Light/Dark Mode Toggle -->
+      <div class="mode-toggle">
+        <span class="emoji">☀️</span>
+        <label class="switch">
+          <input type="checkbox" id="modeToggle" /> <!-- Checkbox to toggle between modes -->
+          <span class="slider"></span> <!-- Custom slider design for toggle -->
+        </label>
+        <span class="emoji">🌙</span>
+      </div>
+    </div>
+    <!-- Input section for adding new tasks -->
+    <div class="input-section">
+      <input type="text" id="input-box" placeholder="Write or speak your task.." />
+      <button id="micBtn" class="mic-btn"><i class="fas fa-microphone"></i></button> <!-- Voice Command Button -->
+      <button onclick="addTask()">Add</button>
+    </div>
+    <!-- List section for displaying tasks -->
+    <ul id="task-list"></ul>
+  </div>
+  <!-- Info Button to show install instructions for PWA -->
+  <button id="infoButton" class="info-btn">i</button>
+  <!-- Modal box displaying platform-wise install steps -->
+  <div id="infoModal" class="info-modal">
+    <h3>📲 How to Install it on your Device</h3>
+    <!-- Mobile installation guide -->
+    <p><strong class="phone-heading">For Phone:</strong><br>
+      1. Tap the ⋮ (three dots) on your browser<br>
+      2. Tap “Add to Home screen”<br>
+      3. Confirm to install</p>
+    <!-- Desktop installation guide -->
+    <p>
+      <strong class="desktop-heading">For Desktop:</strong><br>
+      1. Click the install icon in the address bar if visible (usually looks like a monitor with a down arrow)<br>
+      OR<br>
+      1. Click on the ⋮ (three dots) in the top right<br>
+      2. Scroll down carefully<br>
+      3. Click on (Cast/Save/Share) option and click “Install Daily To-Do List”
+    </p>
+    <!-- Close button for modal -->
+    <div style="text-align:center;">
+      <button onclick="closeInfoModal()" class="close-btn">Close</button>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.0/Sortable.min.js"></script> <!-- Adding SortableJS for Drag & Drop -->
+  <script src="script.js"></script> <!-- Linking external JavaScript code for functionality -->
+</body>
+<!-- Body of the webpage (Ends) -->
+</html>
+<!-- End of Program -->

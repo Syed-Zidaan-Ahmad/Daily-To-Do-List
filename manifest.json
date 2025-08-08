@@ -1,0 +1,22 @@
+{
+  "name": "Daily To-Do List",
+  "short_name": "Daily To-Do List",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#ff4d4d",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "Daily To Do List 192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "Daily To Do List 512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "description": "A simple yet powerful To-Do list app that helps you manage and organize your daily tasks easily."
+}

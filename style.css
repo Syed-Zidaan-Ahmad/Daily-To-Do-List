@@ -1,0 +1,378 @@
+/* Daily To-Do List (CSS Part) */
+/* Program by Zidaan */
+/* Basic Reset and Layout */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+/* Global Body Styles */
+body {
+  background: #f1f1f1;
+  transition: background 0.4s, color 0.4s;
+}
+/* Main Container Styles */
+.container {
+  max-width: 400px;
+  margin: 100px auto 60px;
+  padding: 20px 30px;
+  background: #ffffff;
+  border-radius: 30px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  border: 4px solid;
+  border-image: linear-gradient(135deg, #ff007f, #0ef, #00ff95, #ffcc00, #ff007f) 1;
+  transition: background-color 0.3s ease;
+}
+/* Dark Mode Container Background */
+body.dark .container {
+  background-color: #1e1e1e;
+}
+/* Header Section */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+/* Header Title */
+h2 {
+  font-weight: 600;
+  font-size: 24px;
+}
+/* Input Section for Adding Tasks */
+.input-section {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+/* Task Input Box */
+input[type="text"] {
+  flex: 1;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  outline: none;
+  font-size: 16px;
+}
+/* Add Button */
+.input-section button {
+  padding: 10px 16px;
+  border: none;
+  background: #ff4d4d;
+  color: #fff;
+  font-weight: 600;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+/* Add Button Hover Effect */
+.input-section button:hover {
+  background: #28a745;
+}
+/* Mic Button Style */
+.mic-btn {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #ff2d55, #5856d6, #34c759, #0ef);
+  color: #fff;
+  font-size: 1.4em;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s, box-shadow 0.3s;
+}
+/* Glow when listening */
+.mic-btn.listening {
+  box-shadow: 0 0 15px #0ef, 0 0 30px #ff2d55;
+  transform: scale(1.1);
+}
+/* Ripple effect */
+.mic-btn::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  opacity: 0;
+  transform: scale(1);
+  transition: transform 0.5s, opacity 0.5s;
+}
+/* Ripple after listening */
+.mic-btn.ripple::after {
+  opacity: 1;
+  transform: scale(2.5);
+}
+/* Individual Task Item */
+ul li {
+  background: #f9f9f9;
+  padding: 10px 14px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  transition: 0.3s;
+}
+/* Task Text */
+.task-text {
+  flex: 1;
+  font-size: 16px;
+}
+/* Delete Button */
+.delete-btn {
+  background: red;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 8px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background 0.3s;
+}
+/* Delete Button Hover Effect */
+.delete-btn:hover {
+  background: #c00;
+}
+/* Checked Task Appearance */
+ul li.checked .task-text {
+  text-decoration: line-through;
+  opacity: 0.6;
+}
+/* Mode Toggle Switch Section */
+.mode-toggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+/* Emoji for Dark Mode */
+.emoji {
+  font-size: 18px;
+}
+/* Toggle Switch Container */
+.switch {
+  position: relative;
+  width: 50px;
+  height: 25px;
+}
+/* Hide Default Checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+/* Toggle Slider Background */
+.slider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+  border-radius: 25px;
+}
+/* Slider Knob */
+.slider::before {
+  content: "";
+  position: absolute;
+  height: 21px;
+  width: 21px;
+  left: 2px;
+  bottom: 2px;
+  background-color: white;
+  border-radius: 50%;
+  transition: 0.4s;
+}
+/* Active State for Dark Mode */
+.switch input:checked+.slider {
+  background-color: #0ef;
+}
+/* Active State for Dark Mode and Toggle Switch */
+.switch input:checked+.slider::before {
+  transform: translateX(25px);
+}
+/* Dark Mode Styles */
+body.dark {
+  background: #121212;
+  color: white;
+}
+/* Dark Mode Container */
+body.dark .container {
+  background: #1e1e1e;
+}
+/* Dark Mode Header */
+body.dark input[type="text"] {
+  background: #333;
+  color: white;
+  border: 1px solid #555;
+}
+/* Dark Mode Button */
+body.dark ul li {
+  background: #2c2c2c;
+}
+/* Dark Mode Button Hover Effect */
+body.dark .input-section button:hover {
+  background: #28a745;
+}
+/* Dark Mode Task Text */
+body.dark .input-section button {
+  background: #ff4d4d;
+}
+/* Floating Animation for Container */
+.container:hover {
+  animation: floatSine 1.2s ease-in-out infinite;
+}
+/* Floating Animation Keyframes */
+@keyframes floatSine {
+  0% {
+    transform: translateY(0px);
+  }
+  25% {
+    transform: translateY(2px);
+  }
+  50% {
+    transform: translateY(0px);
+  }
+  75% {
+    transform: translateY(-2px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+/* Info Button Styling */
+.info-btn {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 9999;
+  background: #0ef;
+  backdrop-filter: blur(4px);
+  border: none;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  color: black;
+  font-size: 1.3em;
+  cursor: pointer;
+  transition: 0.3s;
+  box-shadow: 0 0 10px #0ef;
+}
+/* Info Button Hover Effect (Override global hover) */
+.info-btn:hover {
+  background: #0ef;
+  box-shadow: 0 0 20px #0ef;
+}
+/* Info Modal Styling */
+.info-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.8);
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(10px);
+  color: white;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 0 20px #0ef;
+  max-width: 320px;
+  max-height: 80vh;
+  overflow-y: auto;
+  display: none;
+  z-index: 10000;
+  text-align: left;
+  opacity: 0;
+  transition: 0.3s ease;
+}
+/* Modal heading style */
+.info-modal h3 {
+  color: #ffb6c1;
+  text-align: center;
+}
+/* Phone heading highlighted */
+.phone-heading {
+  color: #0ef;
+}
+/* Desktop heading highlighted */
+.desktop-heading {
+  color: #0ef;
+}
+/* Close button inside modal */
+.close-btn {
+  background: #ff1493;
+  color: white;
+  border: none;
+  padding: 8px 20px;
+  border-radius: 10px;
+  margin-top: 10px;
+  cursor: pointer;
+  box-shadow: 0 0 10px #ff6ec7;
+  transition: 0.3s;
+}
+/* Close button hover effect (Override global hover) */
+.close-btn:hover {
+  background: #ff1493;
+  box-shadow: 0 0 20px #ff6ec7;
+}
+/* Media Query for Small Screens */
+@media (max-width: 500px) {
+  .container {
+    margin: 120px auto 40px;
+    /* extra space on small screens */
+    width: 90%;
+  }
+}
+/*Scroll bar Designing for Traffic Light Mode*/
+/*Scroll bar width modifier*/
+::-webkit-scrollbar {
+  width: 12px;
+}
+/* Scroll bar track Designing */
+::-webkit-scrollbar-track {
+  background: black;
+}
+/* Scroll bar scroller thumb */
+::-webkit-scrollbar-thumb {
+  background: #ff004f;
+  border-radius: 50%;
+}
+/* Scroll bar scroller thumb hover effect*/
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(5, 227, 5);
+  box-shadow: 0 0 5px rgb(5, 227, 5), 0 0 25px rgb(5, 227, 5), 0 0 50px rgb(5, 227, 5), 0 0 100px rgb(5, 227, 5),
+    0 0 200px rgb(5, 227, 5);
+}
+/* Modal-specific scrollbar with traffic light style */
+/* Only inside modal: slim scrollbar */
+.info-modal::-webkit-scrollbar {
+  width: 8px;
+}
+/* Track stays black, as usual */
+.info-modal::-webkit-scrollbar-track {
+  background: black;
+}
+/* Thumb with traffic-light red, smaller look */
+.info-modal::-webkit-scrollbar-thumb {
+  background: #ff004f;
+  border-radius: 100%;
+  min-height: 30px;
+}
+/* Hover glow same as before (traffic-light) */
+.info-modal::-webkit-scrollbar-thumb:hover {
+  background: rgb(5, 227, 5);
+  box-shadow: 0 0 5px rgb(5, 227, 5),
+    0 0 25px rgb(5, 227, 5),
+    0 0 50px rgb(5, 227, 5),
+    0 0 100px rgb(5, 227, 5),
+    0 0 200px rgb(5, 227, 5);
+}
+/* End of Program */
